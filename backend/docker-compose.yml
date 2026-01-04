@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: habit_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: habit
+      POSTGRES_PASSWORD: habit
+      POSTGRES_DB: habit_tracker
+    ports:
+      - "55432:5432"
+    volumes:
+      - habit_db_data:/var/lib/postgresql/data
+
+volumes:
+  habit_db_data:
